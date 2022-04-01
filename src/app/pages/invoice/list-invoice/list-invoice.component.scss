@@ -1,0 +1,97 @@
+.table.dataTable.no-footer {
+    border-bottom: none;
+}
+
+.loader {
+    border: 16px solid #cc5118;
+    border-radius: 50%;
+    border-top: 16px solid #2444ad;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 48px);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 9999;
+    background-color: #fff;
+}
+
+
+/* Safari */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.swal2-container {
+    background-color: rgba(0, 0, 0, .4);
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    z-index: 10;
+    overflow-x: hidden;
+}
+
+.loader-circle-17 {
+    font-family: sans-serif;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    border: 2px solid #C9CBCC;
+    position: relative;
+    z-index: 9999;
+    background-color: #ffffff;
+}
+
+.loader-circle-17:before {
+    content: 'PAYNET';
+    font-size: 11px;
+    color: #2444ad;
+}
+
+.loader-circle-17:after {
+    content: '';
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top: 5px solid #cc5118;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    animation: anm-loader-circle-17 2s ease infinite;
+    display: inline-block;
+}
+
+@keyframes anm-loader-circle-17 {
+    to {
+        transform: rotate(360deg);
+    }
+}

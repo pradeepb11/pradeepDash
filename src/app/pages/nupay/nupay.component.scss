@@ -1,0 +1,42 @@
+.table {
+    thead {
+        tr {
+            th {
+                background-color: red !important;
+                &:nth-child(5) {
+                    width: 13% !important;
+                    white-space: pre-wrap !important;
+                    background-color: red;
+                }
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                &:nth-child(5) {
+                    width: 100px;
+                    white-space: pre-wrap !important;
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
+
+table.dataTable thead th {
+    background-color: red;
+    &:nth-child(5) {
+        width: 13% !important;
+        white-space: pre-wrap !important;
+        background-color: red;
+    }
+}
+
+table.dataTable thead td {
+    &:nth-child(5) {
+        width: 13% !important;
+        white-space: pre-wrap !important;
+        background-color: red;
+    }
+}

@@ -1,0 +1,166 @@
+/* You can add global styles to this file, and also import other style files */
+
+#invocieSection {
+    .Thumbnail {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        object-fit: cover;
+        border-radius: 5px;
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    }
+    .box-right {
+        padding: 20px 25px;
+        background-color: white;
+        border-radius: 15px;
+        form {
+            h2 {
+                color: #555;
+                font-family: "Helvetica Neue", Verdana, Geneva, Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                margin-bottom: 0;
+                text-align: left;
+            }
+            label {
+                color: #555;
+                display: block;
+                font-size: 14px;
+                font-weight: 400;
+            }
+            input {
+                font-size: 14px !important;
+                height: 32px;
+                border: 1px solid #ced4da;
+            }
+            #creditcardnumber,
+            #debitcardnumber {
+                background-image: url('./assets/images/images.png'), url('./assets/images/images.png');
+                background-position: 2px -121px, 505px -61px;
+                background-size: 120px 361px, 120px 361px;
+                background-repeat: no-repeat;
+                padding-left: 54px;
+                width: 100%;
+                letter-spacing: 4px;
+            }
+        }
+    }
+    .box-left {
+        padding: 20px 20px;
+        background-color: white;
+        border-radius: 15px;
+    }
+    .red {
+        color: red;
+    }
+}
+
+.invoice-card {
+    overflow: hidden;
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        height: 120px;
+        width: 120px;
+        transform: rotate(40deg);
+        top: -35px;
+        right: -35px;
+        border-radius: 1.75rem;
+        background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+    .card-title {
+        color: #fff;
+    }
+    .text-muted {
+        color: #000 !important;
+    }
+    .badge {
+        background-color: #fff;
+        color: #000;
+    }
+    h1 {
+        color: #fff;
+    }
+}
+
+bg-warning {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.Cpointer {
+    cursor: pointer;
+}
+
+.invoiceForm {
+    .card-title {
+        color: #ee8035;
+    }
+}
+
+@import './assets/sass/sidebar';
+.dataTables_paginate {
+    .paginate_button {
+        border-radius: 100% !important;
+    }
+}
+
+.table {
+    thead {
+        tr {
+            th {
+                border-right: 1px solid #fff !important;
+                // font-size: 12px;
+                white-space: nowrap;
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.dp-nav-header-btn {
+    border: 1px solid #e1e1e1;
+}
+
+.dp-calendar-nav-left,
+.dp-calendar-nav-right,
+.dp-calendar-wrapper,
+.dp-calendar-weekday,
+.dp-calendar-day,
+.dp-calendar-nav-container {
+    border: none !important
+}
+
+.dp-calendar-nav-container {
+    height: 50px !important;
+    border-bottom: 1px solid #e1e1e1;
+    box-shadow: 1px 0 0 #e9ecef, -1px 0 0 #e9ecef, 0 1px 0 #e9ecef, 0 -1px 0 #e9ecef, 0 3px 13px rgb(0 0 0 / 8%);
+    border: 1px solid #000;
+}
+
+.dp-popup {
+    box-shadow: 1px 1px 4px #00000075 !important;
+}
+
+.dp-calendar-weekday {
+    width: 50px;
+}
+
+.dp-calendar-day {
+    width: 50px;
+}
+
+@import '~@angular/cdk/overlay-prebuilt.css';

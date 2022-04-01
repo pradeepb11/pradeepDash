@@ -1,0 +1,75 @@
+.pagenotFoundPage {
+    background-image: url('../../../assets/images/download.svg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #ffffff;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+}
+
+.error-content {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    // padding: 30px;
+    width: 86%;
+    position: relative;
+    overflow: hidden;
+    // padding: 0;
+    .error-number {
+        font-size: 170px;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 5px;
+        margin-top: 15px;
+        text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961);
+    }
+    .error-text {
+        font-size: 18px;
+        color: #3b3f5c;
+        font-weight: 600;
+    }
+    a.btn {
+        width: 134px;
+        padding: 6px;
+        font-size: 17px;
+        background-image: linear-gradient(135deg, #4361ee 0%, #805dca 100%);
+        border: none;
+        letter-spacing: 2px;
+    }
+    a.btn:hover,
+    .error404 a.btn:not(:disabled):not(.disabled):active {
+        background-image: linear-gradient(to right, #4361ee 0%, #805dca 100%);
+    }
+    .maintanence-content {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 30px;
+    }
+    .error-title {
+        margin-top: 65px;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 54px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.101961);
+    }
+    .error-text {
+        margin-top: 40px;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 0;
+        color: #4361ee;
+    }
+}

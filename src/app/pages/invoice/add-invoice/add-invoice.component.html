@@ -1,0 +1,147 @@
+<div class="container-fluid">
+    <div class="content  p-0">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Invoice</h3>
+
+                </div>
+            </div>
+        </div>
+        <div class="row invoiceForm">
+            <div class="col-md-12">
+                <div class="card shadow border ">
+                    <div class="card-header  border-bottom border-2">
+                        <h5 class="card-title mb-0 float-start">Add Invoice</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="invoiceAddForm" (ngSubmit)="onaddinvoiceForm()">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>To <span class="text-danger">*</span></label>
+                                        <div class="cal-icon">
+                                            <input type="text" class="form-control flatpickr-minimum flatpickr-input active" placeholder="Select date.." readonly="readonly" formControlName="date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <div class="cal-icon">
+                                            <input class="form-control datetimepicker" type="email" formControlName="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Phone <span class="text-danger">*</span></label>
+                                        <div class="cal-icon">
+                                            <input class="form-control" formControlName="phone" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label>Ref. No </label>
+                                        <input type="text" class="form-control" formControlName="refno">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label>Invoice Currency <span class="text-danger">*</span></label>
+
+
+                                        <select class="form-select form-control" formControlName="currency">
+                                            <option>select currency</option>
+                                            <option value="{{curr.code}}" *ngFor="let curr of currencyList">{{curr.name}}</option>
+                                          
+												</select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="table-responsive mt-4" formArrayName="customerAdd">
+                                <h5 class="card-title">Add More Customers</h5>
+                                <table class="table table-stripped table-center table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Unit Price</th>
+                                            <th>Amount</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let customer of customerFormGroup.controls; let i = index">
+                                        <tr [formGroupName]="i">
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="Description" formControlName="description">
+                                            </td>
+                                            <td>
+                                                <input type="number" min="1" class="form-control" placeholder="quantity" formControlName="quantity">
+                                            </td>
+                                            <td>
+                                                <input type="number" min="0" class="form-control" placeholder="0.0" formControlName="unitPrice">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="0.0" formControlName="unitTotalPrice" value="" readonly>
+                                            </td>
+                                            <td class="add-remove text-end">
+                                                <i class="fas fa-plus-circle me-2 fs-2 text-success Cpointer" (click)="addCustomerInfo()"></i>
+                                                <i class="fas fa-minus-circle fs-2 text-danger Cpointer" (click)="removeCustomerInfo(i)"></i>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-responsive mt-4">
+                                <table class="table table-stripped table-center table-hover">
+                                    <thead></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-end">Sub Total</td>
+                                            <td class="text-end ">{{totalSum | currency:'INR':'symbol-narrow':'1.2-2'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-end">Discount</td>
+                                            <td class="text-end "> {{0.00 | currency:'INR':'symbol-narrow':'1.2-2'}}</td>
+                                            <!-- <td width="300">
+                                                <select class="form-select w-50  float-end" aria-label="Default select example">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="10">10 % </option>
+                                                    <option value="20">20%</option>
+                                                    <option value="30">30%</option>
+                                                  </select>
+                                            </td> -->
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-end bg-light">Total</td>
+                                            <td class="text-end fw-bold">{{ totalSum | currency:'INR':'symbol-narrow':'1.2-2'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-end mt-4">
+                                <button type="submit" class="btn btn-primary">Add Invoice</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{invoiceAddForm.value | json}}
+</div>

@@ -1,0 +1,362 @@
+<div id="invocieSection" class="mb-5">
+
+    <div class="container">
+        <div class="row m-0">
+            <div class="col-md-7 col-12">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="row box-right shadow">
+                            <div class="col-md-8 ps-0 ">
+
+                                <p class="h1 fw-bold d-flex "> <span class=" textmuted pe-2 h5 mt-1">INR</span>1.00 </p>
+                                <p class="textmuted fst-italic text-muted ">Feb 02 <span class="">nd</span> , 2022</p>
+                                <!-- <p class="ms-3 px-2 bg-green">+10% since last month</p> -->
+                            </div>
+                            <div class="col-md-4">
+                                <div class="Thumbnail">
+                                    <img src="../../../assets/images/soc1.png" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 px-0 mb-4">
+                        <div class="box-right shadow">
+                            <div class="bg-white shadow-sm pt-0 pl-2 pr-2 pb-0">
+                                <!-- Credit card form tabs -->
+                                <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill">
+                                    <li class="nav-item">
+
+                                        <button class="nav-link active" id="pills-UPIPAYMENT-tab" data-bs-toggle="pill" data-bs-target="#UPIPAYMENT" type="button" role="tab" aria-controls="pills-UPIPAYMENT" aria-selected="true">  <i class="fas fa-briefcase me-2"></i> UPI Payment</button>
+                                    </li>
+                                    <li class="nav-item">
+
+                                        <button class="nav-link" id="pills-DEBITCARD-tab" data-bs-toggle="pill" data-bs-target="#DEBITCARD" type="button" role="tab" aria-controls="pills-DEBITCARD" aria-selected="true">  <i class="fab fa-cc-visa me-2"></i> Debit Card</button>
+                                    </li>
+                                    <li class="nav-item">
+
+                                        <button class="nav-link" id="pills-CREDITCARD-tab" data-bs-toggle="pill" data-bs-target="#CREDITCARD" type="button" role="tab" aria-controls="pills-CREDITCARD" aria-selected="true"> <i class="fas fa-credit-card me-2"></i> Credit Card</button>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 px-0">
+                        <div class="box-right shadow">
+                            <div class="tab-content" id="pills-tabContent">
+
+
+                                <div class="tab-pane fade show active" id="UPIPAYMENT" role="tabpanel" aria-labelledby="pills-UPIPAYMENT-tab">
+
+                                    <form>
+                                        <h2>Enter your UPI Details</h2>
+                                        <br>
+                                        <input type="hidden" value="INR" name="transaction_currency">
+                                        <input type="hidden" value="1.000" name="transaction_amount">
+                                        <input type="hidden" value="1.000" name="amount">
+                                        <input type="hidden" value="161900" name="paypage_id">
+                                        <input type="hidden" name="url_parameter" value="b25QT1Joc0ZhSVgzT0tNNTZjSkpKdTZETEZOWmIzdkdmTGVKaGFSUFZVQT0%3D">
+                                        <input type="hidden" value="upi" name="payment_type">
+                                        <div class="row">
+                                            <div class="col col-md-6 col-12 pb-m-5">
+                                                <label>First Name <span class="red">*</span></label>
+                                                <input type="text" class="form-control upi_first_name keyupvalidation" error-class="upifnameerror" placeholder="First Name" value="" name="cc_first_name" autocomplete="off">
+                                                <!-- <span class="error upifnameerror">First Name is required</span> -->
+                                            </div>
+                                            <div class="col col-md-6 col-12">
+                                                <label>Last Name <span class="red">*</span></label>
+                                                <input type="text" class="form-control upi_last_name keyupvalidation" error-class="upilnameerror" placeholder="Last Name" name="cc_last_name" value="" autocomplete="off">
+                                                <!-- <span class="error upilnameerror">Last Name is required</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col col-12">
+                                                <label>UPI ID <span class="red">*</span></label>
+                                                <input type="text" class="form-control upi_id_value keyupvalidation" error-class="upiiderror" name="upi_id" value="" placeholder="XXXXXXXX@XXX" pattern="[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}">
+                                                <!-- <span class="error upiiderror" style="display: inline;">UPI ID is required</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 ">
+                                                <button type="submit" (click)="OnpayClick()" class="btn btn-primary btn-block paynowbutton  w-100">PAY <span class="currencysymbolbutton">INR</span> 1.00 <span class="ms-3 fas fa-arrow-right"></span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+                                <div class="tab-pane fade" id="DEBITCARD" role="tabpanel" aria-labelledby="pills-DEBITCARD-tab">
+                                    <form id="paymentform">
+                                        <h2>Enter your Debit Card Details</h2>
+                                        <br>
+                                        <input type="hidden" value="INR" name="transaction_currency">
+                                        <input type="hidden" value="1.000" name="transaction_amount">
+                                        <input type="hidden" value="1.000" name="amount">
+                                        <input type="hidden" value="161900" name="paypage_id">
+                                        <input type="hidden" name="url_parameter" value="b25QT1Joc0ZhSVgzT0tNNTZjSkpKdTZETEZOWmIzdkdmTGVKaGFSUFZVQT0%3D">
+                                        <input type="hidden" value="creditcard" name="payment_type">
+                                        <div class="row">
+                                            <div class="col col-md-6 col-12 pb-m-5">
+                                                <label>Card Holder First Name <span class="red">*</span></label>
+                                                <input type="text" class="form-control cc_first_name_credit_card keyupvalidation" error-class="ccfnameerror" placeholder="First Name" value="" name="cc_first_name" autocomplete="off">
+                                                <!-- <span class="error ccfnameerror">First Name is required</span> -->
+                                            </div>
+                                            <div class="col col-md-6 col-12">
+                                                <label>Card Holder Last Name <span class="red">*</span></label>
+                                                <input type="text" class="form-control cc_last_name_credit_card keyupvalidation" error-class="cclnameerror" placeholder="Last Name" name="cc_last_name" value="" autocomplete="off">
+                                                <!-- <span class="error cclnameerror">Last Name is required</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col col-12">
+                                                <label>Card Number <span class="red">*</span></label>
+                                                <input maxlength="19" pattern="[0-9\s]{13,19}" type="text" class="" placeholder="1234 1234 1234 1234" name="cc_number" class="form-control" id="debitcardnumber" autocomplete="cc-number">
+                                                <!-- <span class="error cardinvaliderror">Invalid Credit Card Number</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 pb-m-5">
+                                                <div class="row">
+                                                    <label>Expiry (MM/YYYY) <span class="red">*</span></label>
+                                                    <div class="col-md-4 col-6 pr-0">
+                                                        <select name="cc_month" class="form-control">
+                                                      <option value="01">Jan</option>
+                                                      <option value="02">Feb</option>
+                                                      <option value="03">Mar</option>
+                                                      <option value="04">Apr</option>
+                                                      <option value="05">May</option>
+                                                      <option value="06">Jun</option>
+                                                      <option value="07">July</option>
+                                                      <option value="08">Aug</option>
+                                                      <option value="09">Sep</option>
+                                                      <option value="10">Oct</option>
+                                                      <option value="11">Nov</option>
+                                                      <option value="12">Dec</option>
+                                                    </select>
+                                                    </div>
+                                                    <div class="col-md-6 col-6 pl-0">
+                                                        <select name="cc_year" class="form-control">
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="2023">2023</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2026">2026</option>
+                                                    <option value="2027">2027</option>
+                                                    <option value="2028">2028</option>
+                                                    <option value="2029">2029</option>
+                                                    <option value="2030">2030</option>
+                                                 </select>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12 cvv">
+                                                <label>CVV <span class="red">*</span>  <i data-bs-toggle="tooltip" data-bs-placement="top" title="Three digit CV code on the back of your card" class="fa fa-question-circle d-inline ms-1"></i></label>
+                                                <input type="password" placeholder="xxx" class="form-control cvvcc" error-class="cvverror" name="cvv" max="3" style="width:100px;">
+                                                <!-- <span class="error cvverror">CVV is required</span> -->
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 ">
+                                                <button type="submit" class="btn btn-primary  btn-block paynowbutton w-100">PAY <span class="currencysymbolbutton">INR</span> 1.00 <span class="ms-3 fas fa-arrow-right"></span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="CREDITCARD" role="tabpanel" aria-labelledby="pills-CREDITCARD-tab">
+                                    <form id="paymentform">
+                                        <h2>Enter your Credit Card Details</h2>
+                                        <br>
+                                        <input type="hidden" value="INR" name="transaction_currency">
+                                        <input type="hidden" value="1.000" name="transaction_amount">
+                                        <input type="hidden" value="1.000" name="amount">
+                                        <input type="hidden" value="161900" name="paypage_id">
+                                        <input type="hidden" name="url_parameter" value="b25QT1Joc0ZhSVgzT0tNNTZjSkpKdTZETEZOWmIzdkdmTGVKaGFSUFZVQT0%3D">
+                                        <input type="hidden" value="creditcard" name="payment_type">
+                                        <div class="row">
+                                            <div class="col col-md-6 col-12 pb-m-5">
+                                                <label>Card Holder First Name <span class="red">*</span></label>
+                                                <input type="text" class="form-control cc_first_name_credit_card keyupvalidation" error-class="ccfnameerror" placeholder="First Name" value="" name="cc_first_name" autocomplete="off">
+                                                <!-- <span class="error ccfnameerror">First Name is required</span> -->
+                                            </div>
+                                            <div class="col col-md-6 col-12">
+                                                <label>Card Holder Last Name <span class="red">*</span></label>
+                                                <input type="text" class="form-control cc_last_name_credit_card keyupvalidation" error-class="cclnameerror" placeholder="Last Name" name="cc_last_name" value="" autocomplete="off">
+                                                <!-- <span class="error cclnameerror">Last Name is required</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col col-12">
+                                                <label>Card Number <span class="red">*</span></label>
+                                                <input maxlength="19" pattern="[0-9\s]{13,19}" type="text" class="" placeholder="1234 1234 1234 1234" name="cc_number" class="form-control" id="creditcardnumber" autocomplete="cc-number">
+                                                <!-- <span class="error cardinvaliderror">Invalid Credit Card Number</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-6 col-12 pb-m-5">
+                                                <div class="row">
+                                                    <label>Expiry (MM/YYYY) <span class="red">*</span></label>
+                                                    <div class="col-md-4 col-6 pr-0">
+                                                        <select name="cc_month" class="form-control">
+                                                          <option value="01">Jan</option>
+                                                          <option value="02">Feb</option>
+                                                          <option value="03">Mar</option>
+                                                          <option value="04">Apr</option>
+                                                          <option value="05">May</option>
+                                                          <option value="06">Jun</option>
+                                                          <option value="07">July</option>
+                                                          <option value="08">Aug</option>
+                                                          <option value="09">Sep</option>
+                                                          <option value="10">Oct</option>
+                                                          <option value="11">Nov</option>
+                                                          <option value="12">Dec</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6 col-6 pl-0">
+                                                        <select name="cc_year" class="form-control">
+                                                        <option value="2021">2021</option>
+                                                        <option value="2022">2022</option>
+                                                        <option value="2023">2023</option>
+                                                        <option value="2024">2024</option>
+                                                        <option value="2025">2025</option>
+                                                        <option value="2026">2026</option>
+                                                        <option value="2027">2027</option>
+                                                        <option value="2028">2028</option>
+                                                        <option value="2029">2029</option>
+                                                        <option value="2030">2030</option>
+                                                     </select>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12 cvv">
+                                                <label>CVV <span class="red">*</span>  <i data-bs-toggle="tooltip" data-bs-placement="top" title="Three digit CV code on the back of your card" class="fa fa-question-circle d-inline ms-1"></i></label>
+                                                <input type="password" placeholder="xxx" class="form-control cvvcc" error-class="cvverror" name="cvv" max="3" style="width:100px;">
+                                                <!-- <span class="error cvverror">CVV is required</span> -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12 col-12 ">
+                                                <button type="submit" class="btn btn-primary  btn-block paynowbutton w-100">PAY <span class="currencysymbolbutton">INR</span> 1.00 <span class="ms-3 fas fa-arrow-right"></span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-5 col-12 ps-md-5 p-0 mobmb">
+
+                <div class="box-left shadow">
+
+                    <p class="textmuted fw-bold h3"> Invoice Details</p>
+                    <p class="fw-bold h7 mb-2"> <span class="me-3">To:</span> Pradeep G. Bhosle</p>
+                    <p class="fw-bold h7 mb-2"> <span class="me-3">From:</span> Paynet CHS Ltd</p>
+                    <!-- <p class="textmuted h7">Shree Triveni, 69 feet</p>
+                  <p class="textmuted h7 mb-2">Vasai 401302</p> -->
+                    <div class="h8">
+                        <div class="row m-0 mb-3 border p-3 rounded">
+                            <table class="table text-left font-mob">
+                                <tbody>
+                                    <tr>
+                                        <th><b>Description(s)</b></th>
+                                        <th class="text-center"><b>Qty</b></th>
+                                        <th class="text-center item-price"><b>Price</b></th>
+                                        <th class="text-right total"><b>Total</b></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="v-middle">
+                                            <p class="p-0 m-0"><b class="ng-binding">NUPAYTESTUPI</b></p>
+                                        </td>
+                                        <td class="text-center v-middle">1</td>
+                                        <td class="text-center v-middle text-nowrap price"><span currencysymbolbutton="">INR</span> 1.00</td>
+                                        <td class="text-right text-nowrap" align="right"><span currencysymbolbutton="">INR</span> 1.00</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="v-middle">
+                                            <p class="p-0 m-0"><b class="ng-binding">NUPAYTESTUPI</b></p>
+                                        </td>
+                                        <td class="text-center v-middle">2</td>
+                                        <td class="text-center v-middle text-nowrap price"><span currencysymbolbutton="">INR</span> 2.00</td>
+                                        <td class="text-right text-nowrap" align="right"><span currencysymbolbutton="">INR</span> 2.00</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table text-left">
+                                <tbody>
+                                    <tr>
+                                        <td>Discount</td>
+                                        <td align="right">INR 0.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Other Charges</td>
+                                        <td align="right">INR 0.00</td>
+                                    </tr>
+                                    <tr style="font-weight:bold; color: #245f9c; background-color: #e1e1e1;">
+                                        <td>Amount Due</td>
+                                        <td align="right">INR <span id="total">3.00</span></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <div class="d-flex h7 mb-2 p-2">
+                                <p class="">Total Amount</p>
+                                <p class="ms-auto"><span class="fas fa-rupee-sign me-2"></span>3.00</p>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                    <!-- <div class="">
+                      <p class="h7 fw-bold mb-1">Pay this Invoice</p>
+                      <p class="textmuted h8 mb-2">Make payment for this invoice by filling in the details</p>
+                      <div class="form">
+                          <div class="row">
+                              <div class="col-12">
+                                  <div class="card border-0"> <input class="form-control ps-5" type="text" placeholder="Card number"> <span class="far fa-credit-card"></span> </div>
+                              </div>
+                              <div class="col-6"> <input class="form-control my-3" type="text" placeholder="MM/YY"> </div>
+                              <div class="col-6"> <input class="form-control my-3" type="text" placeholder="cvv"> </div>
+                              <p class="p-blue h8 fw-bold mb-3">MORE PAYMENT METHODS</p>
+                          </div>
+                          <div class="btn btn-primary d-block h8">PAY <span class="fas fa-dollar-sign ms-2"></span>1400<span class="ms-3 fas fa-arrow-right"></span></div>
+                      </div>
+                  </div> -->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
