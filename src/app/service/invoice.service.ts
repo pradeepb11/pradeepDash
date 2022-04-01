@@ -33,6 +33,11 @@ export class InvoiceService {
     catchError(this.handleError)
     
   } 
+
+  finalInvoiceData(): Observable <any>{
+    return this._http.get('http://localhost:3000/comments', httpOptions)
+    catchError(this.handleError);
+  }
   
   private handleError(err: HttpErrorResponse){
 

@@ -160,10 +160,10 @@ export class ListInvoiceComponent implements OnInit {
   }
 
   getInvoiceList(){
-    this.invoiceService.getInvoice()
+    this.invoiceService.finalInvoiceData()
     .subscribe(
       (res) =>{
-        // console.log(res);
+        console.log(res[0].data.items);
         if(res.length == null || res.length == 0){
           this.MessageDataInfo = true;
         console.log('response Not Here');

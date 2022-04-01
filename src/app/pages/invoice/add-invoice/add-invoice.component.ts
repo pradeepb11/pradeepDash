@@ -83,13 +83,15 @@ export class AddInvoiceComponent implements OnInit {
   setinvoiceForm(){
     this.invoiceAddForm = this.formbuilder.group({
       date: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')]),
+      phone: new FormControl('', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]),
       refno: new FormControl('', Validators.required),
       currency: new FormControl('', Validators.required),
       customerAdd: this.formbuilder.array([this.createItemFeild()])
     })
   }
+
+  get f() { return this.invoiceAddForm.controls; }
 
   onaddinvoiceForm(){
     console.log('Working')
@@ -162,6 +164,8 @@ export class AddInvoiceComponent implements OnInit {
   discountPrice(){
 
   }
+
+
 
 
 

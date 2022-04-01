@@ -141,7 +141,7 @@
                                             <td>{{list.currency }}</td>
                                             <td class="text-end fw-bold">{{list.amount | number :'1.2-2' | currency : ' &#8377; '}}</td>
                                             <td>{{list.customer_email}}</td>
-                                            <td>{{list.invoice_peroid_startdate}}</td>
+                                            <td>{{list.invoice_peroid_startdate }}</td>
                                             <td>
                                                 <span class="badge " [ngClass]="[list.status === 'paid'? 'bg-success':'', list.status === 'pending'?  'bg-warning':'', list.status === 'paynow'?  'bg-danger':'']">{{list.status | titlecase}}</span>
                                             </td>

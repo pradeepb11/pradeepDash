@@ -164,3 +164,12 @@ bg-warning {
 }
 
 @import '~@angular/cdk/overlay-prebuilt.css';
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border-color: red
+}
+
+.invalid-feedback {
+    display: block;
+}
