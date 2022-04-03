@@ -22,7 +22,7 @@ export class ListInvoiceComponent implements OnInit {
    
  
   }
-  listOfInvoice: any;
+  listOfInvoice: any = [];
   timeout:any;
   loader = false;
   overlay = false;
@@ -76,7 +76,7 @@ export class ListInvoiceComponent implements OnInit {
     let test = this.filterFormData.value;
   
     let status = this.filterFormData.get('status')?.value;
-    let invoice_number = this.filterFormData.get('invoice_number')?.value;
+    let invoice_number = this.filterFormData.get('id')?.value;
     let amount = this.filterFormData.get('amount')?.value;
     let invoice_peroid_startdate = this.filterFormData.get('invoice_peroid_startdate')?.value;
     let customer = this.filterFormData.get('customer')?.value;
@@ -87,10 +87,11 @@ export class ListInvoiceComponent implements OnInit {
     if(status != null || invoice_number != null || amount != null || invoice_peroid_startdate != null || customer != null  || customer_contact != null || customer_email != null){
 
 
-    this.invoiceService.getInvoice()
+    this.invoiceService.getInvoiceData()
     .subscribe(
       (res) =>{
-
+        
+        console.log(res);
         for (let i = 0; i < res.length; i++) {
           const ElementA = res[i];
           // console.log(ElementA.invoice_number)
@@ -107,11 +108,19 @@ export class ListInvoiceComponent implements OnInit {
               },1000)
              
     
-            } else if(invoice_number === ElementA.invoice_numbers){
+            } else if(invoice_number == ElementA.id){
+             
               const statusinvoiceNumData = res.filter((a:any) => {
-                return a.status === ElementA.status;
+                
+                return a.invoice_number === ElementA.id;
               }) 
-              console.log(statusinvoiceNumData)
+              this.loading = true;
+              setTimeout(()=>{
+                this.loading = false;
+                this.MessageDataInfo = false;
+                this.listOfInvoice = statusinvoiceNumData;
+              },1000)
+              // console.log(statusinvoiceNumData)
             }
         }
         
@@ -136,7 +145,7 @@ export class ListInvoiceComponent implements OnInit {
   setFormValidate(){
     this.filterFormData = this.fb.group({
       status: new FormControl(),
-      invoice_number: new FormControl(),
+      id: new FormControl(),
       amount: new FormControl(),
       invoice_peroid_startdate: new FormControl(),
       customer: new FormControl(),
@@ -160,10 +169,11 @@ export class ListInvoiceComponent implements OnInit {
   }
 
   getInvoiceList(){
-    this.invoiceService.finalInvoiceData()
+    this.invoiceService.getInvoiceData()
     .subscribe(
-      (res) =>{
-        console.log(res[0].data.items);
+      (res: any) =>{
+        console.log(res);
+        // this.listOfInvoice = res.invoice;
         if(res.length == null || res.length == 0){
           this.MessageDataInfo = true;
         console.log('response Not Here');

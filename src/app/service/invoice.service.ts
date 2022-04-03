@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError,  tap } from 'rxjs/operators'; 
+import { catchError,  map,  tap } from 'rxjs/operators'; 
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,13 +27,20 @@ export class InvoiceService {
   }
 
   getlocalnupay(): Observable<any>{
-    return this._http.get('./assets/json/nupay.json', httpOptions) }
+    return this._http.get('./assets/json/nupay.json', httpOptions) 
+    catchError(this.handleError)}
 
-  getInvoice(): Observable<any>{
-    return this._http.get('http://localhost:3000/invoice', httpOptions)
-    catchError(this.handleError)
-    
-  } 
+  getInvoiceData(): Observable<any>{
+    return this._http.get('https://my-json-server.typicode.com/pradeepb11/mockjson/invoice', httpOptions)
+    catchError(this.handleError);
+  }
+// get single Invioce data
+ getSingleInvoiceData(invoice: Invoice): Observable<any>{
+   return this._http.get(`https://my-json-server.typicode.com/pradeepb11/mockjson/invoice/${invoice.id}`, httpOptions)
+ 
+   catchError(this.handleError);
+ }
+
 
   finalInvoiceData(): Observable <any>{
     return this._http.get('http://localhost:3000/comments', httpOptions)
@@ -51,4 +59,22 @@ export class InvoiceService {
     return throwError(errorMessage);
 }
 
+}
+
+
+interface Invoice{
+  id: number;
+  createdAt: string;
+  paymentDue: string;
+  description: string;
+  paymentTerms: string;
+  clientName: string;
+  clientEmail: string;
+  status: string;
+  currency: string;
+  senderAddress: string;
+  
+  clientAddress: string;
+  items:string;
+  
 }

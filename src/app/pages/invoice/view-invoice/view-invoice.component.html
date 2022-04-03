@@ -3,37 +3,69 @@
 
     <div class="content container-fluid p-0">
         <div class="row justify-content-center">
-            <div class="col-xl-8">
+            <div class="col-xl-10">
                 <div class="card">
-                    <div class="card-body shadow">
+                    <div class="card-header  border-bottom border-2">
+                        <h5 class="card-title mb-0 float-start">View Invoice</h5>
+                        <div class="col- mb-5">
+                            <div class="float-end">
+                                <a routerLink="/invoice" class="btn btn-primary">
+                                    <i class="fas fa-arrow-left fa-fw me-1"></i> All Invoices
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="card-body shadow" *ngFor="let dataList of invoiceData">
+                        <!-- {{dataList.id}} -->
                         <div class="invoice-item">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="invoice-logo">
+                                <div class="col-md-12">
+                                    <div class="invoice-logo float-start">
                                         <img src="./assets//images/paynet.png" style="width: 160px;" alt="logo">
                                     </div>
+                                    <div class="float-end p-0 d-flex">
+                                        <div class=" badge fs-4"  [ngClass]="[dataList.status === 'paid'? 'bg-success':'', dataList.status === 'pending'?  'bg-warning':'', dataList.status === 'paynow'?  'bg-danger':'']">
+                                            {{dataList.status}}
+                                          
+                                        </div>
+                                        <button class="btn btn-success fs-4 ms-2 text-dark" [ngClass]="[dataList.status === 'paid'? 'ms-2 d-none':'', dataList.status === 'pending'?  'ms-2 d-block':'', dataList.status === 'paynow'?  'ms-2 d-block':'']" (click)="payInvoice()">Pay</button>
+                                    </div>
+                                   
                                 </div>
-                                <div class="col-md-6">
-                                    <p class="invoice-details">
-                                        <strong>Order:</strong> #00124 <br>
-                                        <strong>Issued:</strong> 14/03/2022
-                                    </p>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-6"></div>
+                                    
+                                    <div class="col-md-6">
+                                        <p class="invoice-details">
+                                            <strong>Order: </strong> {{dataList.id}} <br>
+                                            <strong>Issued: </strong>{{dataList.createdAt}} <br>
+                                            <strong>Payment Due: </strong>{{dataList.paymentDue}}
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                           
                         </div>
                         <div class="invoice-item">
-                            <div class="row">
+                            <div class="row mb-2 mt-3 border-top border-bottom p-1">
                                 <div class="col-md-6">
                                     <div class="invoice-info">
                                         <strong class="customer-text">Invoice From</strong>
-                                        <p class="invoice-details invoice-details-two"> Lorem, ipsum. <br> 806 Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, libero.`
+                                        <p class="invoice-details invoice-details-two">{{dataList.senderAddress.street}} <br>
+                                            {{dataList.senderAddress.postCode}}, {{dataList.senderAddress.city}}, {{dataList.senderAddress.country}}
                                         </p>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="invoice-info invoice-info2">
                                         <strong class="customer-text">Invoice To</strong>
-                                        <p class="invoice-details"> Lorem, ipsum. <br> 299 Lorem ipsum dolor sit amet.
+                                        <p class="invoice-details ">
+                                            {{dataList.clientAddress.street}} <br>
+                                            {{dataList.clientAddress.postCode}}, {{dataList.clientAddress.city}}, {{dataList.clientAddress.country}}
                                         </p>
                                     </div>
                                 </div>
@@ -59,23 +91,18 @@
                                                 <tr>
                                                     <th>Description</th>
                                                     <th class="text-center">Quantity</th>
-                                                    <th class="text-center">VAT</th>
+                                                    <th class="text-center">Price</th>
                                                     <th class="text-end">Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>General Consultation</td>
-                                                    <td class="text-center">1</td>
-                                                    <td class="text-center">0</td>
-                                                    <td class="text-end">100</td>
+                                                <tr *ngFor="let item of (dataList.items)">
+                                                    <td>{{item.name}}</td>
+                                                    <td class="text-center">{{item.quantity}}</td>
+                                                    <td class="text-center">{{item.price}}</td>
+                                                    <td class="text-end">{{item.total}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Video Call Booking</td>
-                                                    <td class="text-center">1</td>
-                                                    <td class="text-center">0</td>
-                                                    <td class="text-end">250</td>
-                                                </tr>
+                                            
                                             </tbody>
                                         </table>
                                     </div>
@@ -87,19 +114,14 @@
                                                 <tr>
                                                     <th>Subtotal:</th>
                                                     <td>
-                                                        <span>350</span>
+                                                        <span>{{dataList.total}}</span>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <th>Discount:</th>
-                                                    <td>
-                                                        <span>10%</span>
-                                                    </td>
-                                                </tr>
+                                               
                                                 <tr>
                                                     <th>Total Amount:</th>
-                                                    <td>
-                                                        <span>315</span>
+                                                    <td class="fw-bold">
+                                                        <span>{{dataList.total}}</span>
                                                     </td>
                                                 </tr>
                                             </tbody>
