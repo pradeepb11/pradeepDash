@@ -1,5 +1,5 @@
 # NgDashboard
-<p align="right"> <img src="https://komarev.com/ghpvc/?username=pradeepbhosle8&label=Profile%20views&color=0e75b6&style=flat" alt="pradeepbhosle8" /> </p>
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
 ## Development server
